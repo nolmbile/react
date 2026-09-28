@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import heroImage from './assets/ssh-band-live.jpeg'
 
 async function requestJson(path, options) {
   const response = await fetch(path, options)
@@ -112,49 +113,46 @@ function App() {
       <header className="site-header">
         <a className="brand" href="#top" aria-label="SSH 밴드 홈">
           <BandMark />
-          <span>SSH<span className="brand-sub">BAND</span></span>
+          <span className="brand-name">SSH<span className="brand-sub"> / BAND</span></span>
         </a>
         <nav aria-label="주요 메뉴">
-          <a href="#recruit">모집 안내</a>
-          <a href="#board">익명 게시판</a>
+          <a href="#recruit"><span>01</span> 모집 안내</a>
+          <a href="#board"><span>02</span> 익명 게시판</a>
         </nav>
         <a className="header-cta" href="#board">질문 남기기 <span aria-hidden="true">↗</span></a>
       </header>
 
       <main id="top">
         <section className="hero" aria-labelledby="hero-title">
-          <div className="hero-copy">
-            <p className="eyebrow"><span className="live-dot" /> SSH BAND · MEMBER CALL</p>
-            <h1 id="hero-title">SSH 밴드와<br /><em>함께할 멤버를 찾습니다.</em></h1>
-            <p className="hero-description">
-              새로운 멤버를 모집하고 있어요. 모집 조건이나 합류 과정이 궁금하다면
-              로그인 없이 익명으로 질문을 남겨 주세요.
-            </p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="#board">모집 내용 물어보기 <span aria-hidden="true">↗</span></a>
-              <a className="text-link" href="#recruit">모집 안내 <span aria-hidden="true">↓</span></a>
-            </div>
-            <div className="hero-note">
-              <span className="note-icon" aria-hidden="true">✳</span>
-              <span>연락처나 이름을 입력하지 않아도 참여할 수 있어요.</span>
-            </div>
+          <div className="hero-topline">
+            <p className="eyebrow"><span className="live-dot" /> SSH BAND / OPEN CALL</p>
+            <span className="hero-index">MEMBER RECRUITMENT <b>01 — 03</b></span>
           </div>
-
-          <div className="hero-art" aria-hidden="true">
-            <div className="art-topline"><span>SSH / OPEN CALL</span><span>01 — 03</span></div>
-            <div className="art-orbit orbit-one" />
-            <div className="art-orbit orbit-two" />
-            <div className="art-disc"><div className="disc-center"><BandMark /></div></div>
-            <div className="art-spark spark-one">✳</div>
-            <div className="art-spark spark-two">✳</div>
-            <div className="art-caption"><span>멤버 모집</span><strong>PLAY<br />TOGETHER</strong></div>
-            <div className="art-bottomline"><span>질문은 익명으로</span><span>NO LOGIN REQUIRED</span></div>
+          <div className="hero-photo">
+            <img
+              src={heroImage}
+              alt="여성 연주자들이 화려한 조명의 클럽 무대에서 함께 공연하는 모습"
+              fetchPriority="high"
+              decoding="async"
+            />
+            <div className="photo-overlay" />
+            <div className="hero-copy">
+              <p className="photo-kicker">SSH BAND · JOIN THE BAND</p>
+              <h1 id="hero-title">함께할 멤버를<br /><em>찾습니다.</em></h1>
+              <a className="button button-primary" href="#board">모집에 대해 질문하기 <span aria-hidden="true">↗</span></a>
+            </div>
+            <span className="photo-side-note" aria-hidden="true">LIVE / LOUD / TOGETHER</span>
+            <span className="photo-corner-mark" aria-hidden="true">SSH<br />BAND</span>
+          </div>
+          <div className="hero-caption">
+            <p>SSH 밴드의 새 멤버를 모집합니다. 조건과 합류 과정이 궁금하다면 로그인 없이 익명으로 질문을 남겨 주세요.</p>
+            <a href="#recruit">모집 안내 읽기 <span aria-hidden="true">↓</span></a>
           </div>
         </section>
 
         <section className="recruit-section" id="recruit" aria-labelledby="recruit-title">
+          <div className="section-label"><span>01</span><span>RECRUITMENT / SSH BAND</span></div>
           <div className="section-heading">
-            <p className="eyebrow">01 / RECRUITMENT</p>
             <h2 id="recruit-title">같이 만들어 갈<br />다음 장면을 기다립니다.</h2>
           </div>
           <div className="recruit-copy">
@@ -162,13 +160,12 @@ function App() {
             <p>모집 분야, 일정, 합류 방법처럼 더 알고 싶은 내용이 있나요? 아직 공개되지 않은 정보를 추측해 안내하지 않고, 익명 게시판의 질문으로 확인할 수 있도록 준비했습니다.</p>
             <a className="inline-link" href="#board">궁금한 점을 질문하기 <span aria-hidden="true">↗</span></a>
           </div>
-          <div className="recruit-stamp" aria-hidden="true"><span>SSH</span><small>OPEN<br />CALL</small><b>✳</b></div>
         </section>
 
         <section className="board-section" id="board" aria-labelledby="board-title">
           <div className="board-heading">
             <div>
-              <p className="eyebrow">02 / ASK THE BAND</p>
+              <p className="eyebrow"><span className="live-dot" /> 02 / ASK THE BAND</p>
               <h2 id="board-title">익명 게시판<span className="heading-period">.</span></h2>
               <p>로그인 없이 질문을 남기고, 다른 분들의 질문도 함께 읽어 보세요.</p>
             </div>
@@ -248,9 +245,9 @@ function App() {
         </section>
 
         <section className="closing-cta" aria-label="모집 관련 질문">
-          <p className="eyebrow">NO LOGIN · NO CONTACT DETAILS</p>
-          <p>궁금한 것부터, 편하게 물어보세요.</p>
-          <a href="#board" aria-label="익명 게시판으로 이동">질문 남기기 <span aria-hidden="true">↗</span></a>
+          <p className="eyebrow">OPEN CALL / SSH BAND</p>
+          <p>궁금한 것부터,<br />편하게 물어보세요.</p>
+          <a href="#board" aria-label="익명 게시판으로 이동">익명으로 질문 남기기 <span aria-hidden="true">↗</span></a>
         </section>
       </main>
 
