@@ -7,14 +7,19 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "test": "node --test",
     "preview": "vite preview",
-    "start": "vite preview --host 0.0.0.0 --port ${PORT:-4173}"
+    "start": "node server/index.js"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
-    "vite": "latest",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "pg": "^8.23.0",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "vite": "latest"
   },
   "devDependencies": {
     "@eslint/js": "latest",
